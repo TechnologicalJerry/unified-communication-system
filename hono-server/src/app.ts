@@ -2,10 +2,10 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { secureHeaders } from 'hono/secure-headers';
 
-import { env } from './config/env.js';
-import { handleAppError } from './middlewares/error.middleware.js';
-import { authRoutes } from './modules/auth/auth.routes.js';
-import { userRoutes } from './modules/users/user.routes.js';
+import { env } from './config/env';
+import { handleAppError } from './middlewares/error.middleware';
+import { authRoutes } from './modules/auth/auth.routes';
+import { userRoutes } from './modules/users/user.routes';
 
 export const app = new Hono();
 
