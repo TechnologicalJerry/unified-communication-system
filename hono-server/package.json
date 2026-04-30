@@ -1,32 +1,27 @@
 {
-  "name": "hono-server",
+  "name": "hono-server-workspace",
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
   "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "build": "tsup src/server.ts --format esm --dts --sourcemap --clean",
-    "start": "node dist/server.js",
-    "check": "tsc --noEmit",
-    "lint": "eslint ."
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "start": "npm run start --workspace=services/api-gateway",
+    "check": "npm run check --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
   },
   "dependencies": {
-    "@hono/node-server": "^1.13.8",
-    "bcryptjs": "^2.4.3",
-    "dotenv": "^16.4.5",
-    "hono": "^4.6.5",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.8.1",
-    "zod": "^3.23.8"
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22.9.0",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
     "@typescript-eslint/parser": "^8.13.0",
     "eslint": "^9.14.0",
-    "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   }
