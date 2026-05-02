@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  postgres_express:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: express_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_express_data:/var/lib/postgresql/data
+
+  mongo_express:
+    image: mongo:6
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_express_data:/data/db
+
+  redis_express:
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_express_data:/data
+
+volumes:
+  postgres_express_data:
+  mongo_express_data:
+  redis_express_data:
