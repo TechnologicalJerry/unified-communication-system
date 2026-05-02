@@ -5,13 +5,12 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "outDir": "dist",
-    "rootDir": "src",
-    "types": ["node"],
-    "resolveJsonModule": true
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist"
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "packages/*/src/**/*",
+    "services/*/src/**/*"
+  ]
 }
